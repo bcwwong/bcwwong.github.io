@@ -13,7 +13,7 @@
     
     
       
-        <title>Web site - My Docs</title>
+        <title>[Protected] Web site - My Docs</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Web site
+              [Protected] Web site
             
           </span>
         </div>
@@ -559,12 +559,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Web site
+          [Protected] Web site
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Web site
+        [Protected] Web site
       </a>
       
         
@@ -732,94 +732,29 @@
                   
 
 
-<h1 id="hosting-personal-web-page-generated-from-mkdocs">Hosting personal web page generated from mkdocs</h1>
-<h2 id="password-protect-pages">password protect pages</h2>
-<p>Source: <a href="https://pypi.org/project/mkdocs-encryptcontent-plugin/">https://pypi.org/project/mkdocs-encryptcontent-plugin/</a></p>
-<ul>
-<li>
-<p>install mkdocs-encryptcontent-plugin
-<div class="highlight"><pre><span></span><code>pip install mkdocs-encryptcontent-plugin
-</code></pre></div></p>
-</li>
-<li>
-<p>Enable the plugin in your mkdocs.yml:
-<div class="highlight"><pre><span></span><code>plugins:
-    - search: {}
-    - encryptcontent: {}
-</code></pre></div></p>
-</li>
-<li>
-<p>Add global password:
-<div class="highlight"><pre><span></span><code>plugins:
-    - encryptcontent:
-        global_password: &#39;your_password&#39;
-</code></pre></div></p>
-</li>
-<li>
-<p>To enable remember password:
-<div class="highlight"><pre><span></span><code>plugins:
-    - encryptcontent:
-        remember_password: True
-        default_expire_delay: 24   # &lt;-- Default expire delay in hours (optional)
-</code></pre></div></p>
-</li>
-<li>To override global password, add password to page using password metadata:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>---
-password: &#39;new_password&#39; 
----
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Use empty password to disable password:
-<div class="highlight"><pre><span></span><code>---
-password: &#39;&#39;
----
-</code></pre></div></p>
+<div id="mkdocs-encrypted-content" style="display:none">Xpl6EYhVCMMsY+mGHHpmTg==;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;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>This content is protected with AES encryption. </h1>
+        <p>Contact your administrator for access to this page.</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Use CTRL+ENTER to provide global password" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
 </div>
-<h2 id="hosting-in-github-page">hosting in GitHub Page</h2>
-<p>Based on <a href="https://docs.github.com/en/pages/quickstart">https://docs.github.com/en/pages/quickstart</a></p>
-<ul>
-<li>login github.com; username: bcwwong(busywong@gmail.com); password: Skxxxxxx@xxx;</li>
-<li>
-<p>Recovery code:
-bd411-0d59a 
-6003e-c6565 
-54781-28e47 
-f25d1-c4467 
-8b08c-3cc73 
-d5de3-76417 
-cc254-02da8 
-d1824-9b035 
-d1c66-58787 
-1e2eb-20819 
-e90d3-18b9f 
-f154c-ddb11 
-5bc50-d8848 
-8ad03-7c741 
-ba1a3-32391 
-70869-e580b</p>
-</li>
-<li>
-<p>Create new repository, use username.github.io as the repository name (e.g. bcwwong.github.io)</p>
-</li>
-<li>Download GitHub Desktop:<ul>
-<li>File | Clone repository (bcwwong/bcwwong.github.io); specify local path to store repository</li>
-</ul>
-</li>
-<li>Set mkdocs output directory the same as the local directory for github repository  <br />
-<div class="highlight"><pre><span></span><code>site_dir: &#39;..\Documents\GitHub\bcwwong.github.io&#39;
-</code></pre></div></li>
-<li>
-<p>build site:
-<div class="highlight"><pre><span></span><code>mkdocs build
-</code></pre></div></p>
-</li>
-<li>
-<p>GitHub Desktop: Give Summary (e.g. 2023-07-30); Commit to main</p>
-</li>
-</ul>
-<h2 id="hosting-in-google-drive">hosting in Google Drive</h2>
+
+<script type="text/javascript">
+var encryptcontent_path = "tips/web/";
+var decryption_failure_message = "Invalid password.";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../../assets/javascripts/decrypt-contents.js" defer></script>
+
 
 
 
