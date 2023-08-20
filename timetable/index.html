@@ -1,754 +1,539 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
-    
-    
-      
-        <title>[Protected] Notes - My Docs</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
-      
-        
-        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
-        
-      
-      
+<!DOCTYPE html>
 
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
-  
-    
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#notes-on-timetabling" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Notes - My Docs</title>
+<link href="../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="None" data-md-color-primary="None" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#notes-on-timetabling">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-  
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="My Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="My Docs">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             My Docs
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
-              [Protected] Notes
+              Notes
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list"></ol>
 </div>
-    
-    
-  </nav>
-  
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href=".." class="md-tabs__link">
-      [Protected] Home
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="..">
+      Home
     </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="../todo/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../todo/">
       ToDo
     </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="../sites/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../sites/">
       [Protected] Useful sites
     </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../booked/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../booked/">
         Booking system
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-    
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="./">
         Timetable
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../tips/excel/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../tips/excel/">
         Tips
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../private/diary/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../private/diary/">
         Private
       </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
+</li>
+</ul>
+</div>
 </nav>
-    
-  
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-  
-
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="My Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="My Docs">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
     My Docs
   </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        [Protected] Home
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Home
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../todo/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../todo/">
         ToDo
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sites/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sites/">
         [Protected] Useful sites
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../booked/">Booking system</a>
-          
-            <label for="__nav_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Booking system" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../booked/">Booking system</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Booking system" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
           Booking system
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../booked/installation/" class="md-nav__link">
-        [Protected] Installation
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../booked/installation/">
+        Installation
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../booked/customization/" class="md-nav__link">
-        [Protected] Customization
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../booked/customization/">
+        Customization
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Timetable</a>
-          
-            <label for="__nav_5">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Timetable" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href="./">Timetable</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Timetable" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
           Timetable
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="scripts/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="scripts/">
         Scripts
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
           Tips
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Tips" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tips" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
           Tips
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tips/excel/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tips/excel/">
         Excel
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tips/theorigo/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tips/theorigo/">
         School Website
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tips/web/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tips/web/">
         Web site
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
           Private
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Private" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Private" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
           Private
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../private/diary/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../private/diary/">
         [Protected] Diary
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-<div id="mkdocs-encrypted-content" style="display:none">gHrNkFV+8zjXxp6FwvBwYQ==;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;^</div>
-<div id="mkdocs-decrypted-content">
-    <form id="mkdocs-decrypt-form">
-        <h1>This content is protected with AES encryption. </h1>
-        <p>Contact your administrator for access to this page.</p>
-        <input type="password" id="mkdocs-content-password" placeholder="Use CTRL+ENTER to provide global password" />
-        
-        <p id="mkdocs-decrypt-msg"></p>
-    </form>
 </div>
-
-<script type="text/javascript">
-var encryptcontent_path = "timetable/";
-var decryption_failure_message = "Invalid password.";
-</script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
-<script type="text/javascript" src="../assets/javascripts/decrypt-contents.js" defer></script>
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../booked/customization/" class="md-footer__link md-footer__link--prev" aria-label="Previous: [Protected] Customization" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="notes-on-timetabling"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.</span> Notes on timetabling</h1>
+<ul class="task-list">
+<li class="task-list-item"><input disabled="" type="checkbox"> Convert .docx file from Denny to Excel: How? Which script?<ul>
+<li>Delete any 'carriage returns' in the titles/topics in the .docx file</li>
+<li>Paste into Excel</li>
+<li>Unmerged cells, so one line one entry</li>
+<li>Add last column with course code</li>
+<li>Example of the text file for processing by python script:</li>
+</ul>
+</input></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Ref</th>
+<th>Date</th>
+<th>Day</th>
+<th>Time</th>
+<th>Venue</th>
+<th>Topic</th>
+<th>Lecturer</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1</td>
+<td>2023-09-04</td>
+<td>Mon</td>
+<td>1330-1420</td>
+<td>TBC</td>
+<td>Cartilage and bone connective tissue</td>
+<td>Yang-J</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>2023-09-04</td>
+<td>Mon</td>
+<td>1430-1520</td>
+<td>TBC</td>
+<td>Skull, vertebral column and back muscles</td>
+<td>Yang-J</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>2023-09-05</td>
+<td>Tue</td>
+<td>1330-1420</td>
+<td>TBC</td>
+<td>Appendicular skeleton</td>
+<td>Cheung-L</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>2023-09-05</td>
+<td>Tue</td>
+<td>1430-1520</td>
+<td>TBC</td>
+<td>Appendicular muscles</td>
+<td>Cheung-L</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>L5</td>
+<td>2023-09-07</td>
+<td>Thu</td>
+<td>1030-1120</td>
+<td>TBC</td>
+<td>Limb plexus</td>
+<td>Cheung-L</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>L6</td>
+<td>2023-09-07</td>
+<td>Thu</td>
+<td>1130-1220</td>
+<td>TBC</td>
+<td>Muscles of the head &amp; face</td>
+<td>Cecot-TS</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>2023-09-11</td>
+<td>Mon</td>
+<td>1330-1420</td>
+<td>TBC</td>
+<td>Review session (Anatomy)</td>
+<td>Cheung-L</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>2023-09-11</td>
+<td>Mon</td>
+<td>1430-1520</td>
+<td>TBC</td>
+<td>Review session (Anatomy)</td>
+<td>Yang-J</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>L7</td>
+<td>2023-09-12</td>
+<td>Tue</td>
+<td>1330-1420</td>
+<td>TBC</td>
+<td>Synaptic &amp; neuromuscular transmission</td>
+<td>Ma-CW</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>L8</td>
+<td>2023-09-12</td>
+<td>Tue</td>
+<td>1430-1520</td>
+<td>TBC</td>
+<td>Excitation &amp; muscle contraction</td>
+<td>Ma-CW</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>P1 A</td>
+<td>2023-09-14</td>
+<td>Thu</td>
+<td>1030-1220</td>
+<td>DL</td>
+<td>Limbs, vertebral column, head &amp; neck demonstration (Group A)</td>
+<td>Cheung-A</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Yang-J</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Fonseca-G</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Lee-JCD</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>L9</td>
+<td>2023-09-18</td>
+<td>Mon</td>
+<td>1330-1420</td>
+<td>TBC</td>
+<td>Reflex physiology</td>
+<td>Ma-CW</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td>P1 A</td>
+<td>2023-09-18</td>
+<td>Mon</td>
+<td>1430-1620</td>
+<td>DL</td>
+<td>Limbs, vertebral column, head &amp; neck demonstration (Group B)</td>
+<td>Cheung-A</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Cheung-L</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Cecot-TS</td>
+<td>BMSN3605</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Liu-R</td>
+<td>BMSN3605</td>
+</tr>
+</tbody>
+</table>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Customization" class="md-footer__link md-footer__link--prev" href="../booked/customization/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
                 Previous
               </span>
-              [Protected] Customization
+              Customization
             </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="scripts/" class="md-footer__link md-footer__link--next" aria-label="Next: Scripts" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
+</div>
+</a>
+<a aria-label="Next: Scripts" class="md-footer__link md-footer__link--next" href="scripts/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
                 Next
               </span>
               Scripts
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+</body>
 </html>
