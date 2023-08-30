@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../markdown/" rel="prev"/>
-<link href="../theorigo/" rel="next"/>
+<link href="../../timetable/scripts/" rel="prev"/>
+<link href="../excel/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.1.17" name="generator"/>
-<title>Excel - My Docs</title>
+<title>Markdown - My Docs</title>
 <link href="../../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#excel">
+<a class="md-skip" href="#markdown-notes">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Excel
+              Markdown
             
           </span>
 </div>
@@ -112,7 +112,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../markdown/">
+<a class="md-tabs__link md-tabs__link--active" href="./">
         Tips
       </a>
 </li>
@@ -215,19 +215,14 @@
           Tips
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../markdown/">
-        Markdown
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Excel
+          Markdown
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Excel
+        Markdown
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -236,27 +231,17 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#extract-weekday-from-date">
-    Extract weekday from date
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#calculate-difference-between-two-time-roudup-to-nearest-integer">
-    Calculate difference between two time, roudup to nearest integer
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#import-data-from-mysql">
-    Import data from MySQL
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#check-whether-cell-contains-partial-text-match-to-another-cell">
-    check whether cell contains partial text match to another cell
+<a class="md-nav__link" href="#comment-lines">
+    Comment lines
   </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../excel/">
+        Excel
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../theorigo/">
@@ -311,23 +296,8 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#extract-weekday-from-date">
-    Extract weekday from date
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#calculate-difference-between-two-time-roudup-to-nearest-integer">
-    Calculate difference between two time, roudup to nearest integer
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#import-data-from-mysql">
-    Import data from MySQL
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#check-whether-cell-contains-partial-text-match-to-another-cell">
-    check whether cell contains partial text match to another cell
+<a class="md-nav__link" href="#comment-lines">
+    Comment lines
   </a>
 </li>
 </ul>
@@ -337,25 +307,59 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="excel"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.</span> Excel</h1>
-<h2 id="extract-weekday-from-date"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.1</span> Extract weekday from date</h2>
-<pre><code>=TEXT(DATE(2023,8,31),"ddd") -&gt; Thu
-=TEXT(A2,"ddd") -&gt; Thu (A2 the excel cell with a date entry)
-</code></pre>
-<h2 id="calculate-difference-between-two-time-roudup-to-nearest-integer"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.2</span> Calculate difference between two time, roudup to nearest integer</h2>
-<pre><code>=24*(TIME(12,12,12)-TIME(10,9,12)) -&gt; 2.05
-=ROUNDUP(24*(A1-A2),0)
-</code></pre>
-<h2 id="import-data-from-mysql"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3</span> Import data from MySQL</h2>
-<pre><code>= Source{[Schema="sbms",Item="A_teaching_2019"]}[Data]
+<h1 id="markdown-notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.</span> Markdown notes</h1>
+<h2 id="comment-lines"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.1</span> Comment lines</h2>
+<ul>
+<li>
+<p>Method 1: Put comments within <code>&lt;!--- ---&gt;</code> (three dashes)
+<div class="highlight"><pre><span></span><code>* Point 1: Text
+&lt;!--- 
+This is the comment section.
+---&gt;
 
-= MySQL.Database("www.sbms.hku.hk", "sbms", [ReturnSingleDatabase=true, Query="select * from A_teaching_2019_draft where staff = 'wong bcw';"])
-</code></pre>
-<h2 id="check-whether-cell-contains-partial-text-match-to-another-cell"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4</span> check whether cell contains partial text match to another cell</h2>
-<pre><code>=IF(COUNTIF(range,criteria),[value_if_true],[value_if_false])
-=IF(COUNTIF(M2,"*"&amp;K2&amp;"*"),"clash","")
-</code></pre>
-<p><img alt="example" src="../img/2023-07-14_05-43-31.png"/></p>
+* Point 2:
+</code></pre></div></p>
+</li>
+<li>
+<p>Point 1: Text</p>
+</li>
+</ul>
+<!--- 
+This is the comment section.
+--->
+<ul>
+<li>Point 2:</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The comments will not appear in the html output but still visible in html page source</p>
+</div>
+<ul>
+<li>
+<p>Method 2: Put comments within square brackets, followed by a colon, a space and a # sign.
+<div class="highlight"><pre><span></span><code>* Point 1: Text
+[This is the comment section]: #
+
+* Point 2:
+</code></pre></div></p>
+</li>
+<li>
+<p>Point 1: Text </p>
+</li>
+<li>
+<p>Point 2:</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The comments will not appear in the html output and not visible in html page source</p>
+</div>
+<ul>
+<li>Method 3: 
+<div class="highlight"><pre><span></span><code>[//]: # (This is the comment section)
+[//]: # "This is the comment section"
+</code></pre></div></li>
+</ul>
 </article>
 </div>
 </div>
