@@ -773,12 +773,13 @@
 <div class="highlight"><pre><span></span><code>python3 -m pip install --user mkdocs
 </code></pre></div></p>
 <p>Create new site:</p>
-<div class="highlight"><span class="filename">Create new project</span><pre><span></span><code>mkdocs new blog3
+<div class="highlight"><span class="filename">Create new project</span><pre><span></span><code>mkdocs new &lt;project_name&gt;
+mkdocs new sbms-blog
 </code></pre></div>
 <div class="result">
-<div class="highlight"><pre><span></span><code>INFO     -  Creating project directory: blog
-INFO     -  Writing config file: blog/mkdocs.yml
-INFO     -  Writing initial docs: blog/docs/index.md
+<div class="highlight"><pre><span></span><code>INFO     -  Creating project directory: sbms-blog
+INFO     -  Writing config file: sbms-blog/mkdocs.yml
+INFO     -  Writing initial docs: sbms-blog/docs/index.md
 </code></pre></div>
 </div>
 <p>Python3.6 was installed as default. Blog plugin in Material for Mkdocs requires verion 9.2.0 or above python3.7 or above. Installing latest version of Material for Mkdocs under python3.6 did not work.</p>
@@ -793,10 +794,10 @@ INFO     -  Writing initial docs: blog/docs/index.md
 <p>Set up virtual environment to run mkdocs in python3.9.</p>
 <p>Command: 
 <div class="highlight"><pre><span></span><code>python&lt;version&gt;<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>&lt;virtual-environment-name&gt;
-<span class="nb">cd</span><span class="w"> </span>blog
+<span class="nb">cd</span><span class="w"> </span>sbms-blog
 python3.9<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
 <span class="nb">source</span><span class="w"> </span>venv/bin/activate
-<span class="o">(</span>venv<span class="o">)</span><span class="w"> </span><span class="o">[</span>sbms@L459<span class="w"> </span>blog<span class="o">]</span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material<span class="w"> </span>mkdocs-encryptcontent-plugin
+<span class="o">(</span>venv<span class="o">)</span><span class="w"> </span><span class="o">[</span>sbms@L459<span class="w"> </span>sbms-blog<span class="o">]</span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material<span class="w"> </span>mkdocs-encryptcontent-plugin
 </code></pre></div></p>
 <p>Mkdocs version 1.6.0 installed</p>
 <h2 id="set-up-a-blog-in-material-for-mkdocs">Set up a blog in Material for Mkdocs</h2>
@@ -808,7 +809,7 @@ python3.9<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> 
 </ul>
 <p>Steps:</p>
 <ol>
-<li>Edit blog/mkdocs.yml to turn on blog plugin:
+<li>Edit sbms-blog/mkdocs.yml to turn on blog plugin:
 <div class="highlight"><pre><span></span><code>site_name: My Docs
 theme: 
 <span class="hll">  name: material
@@ -898,7 +899,7 @@ or
 mkdocs<span class="w"> </span>serve<span class="w"> </span><span class="o">(</span><span class="k">for</span><span class="w"> </span>localhost:8000<span class="o">)</span>
 </code></pre></div>
 <h3 id="to-leave-virtual-environment">To leave virtual environment:</h3>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span><span class="o">[</span>sbms@L459<span class="w"> </span>blog<span class="o">]</span>$<span class="w"> </span>deactivate
+<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span><span class="o">[</span>sbms@L459<span class="w"> </span>sbms-blog<span class="o">]</span>$<span class="w"> </span>deactivate
 </code></pre></div>
 
 
