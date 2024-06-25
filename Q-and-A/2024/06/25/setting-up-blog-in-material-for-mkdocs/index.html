@@ -770,29 +770,32 @@
 <!-- more -->
 
 <p>Install mkdocs: 
-<div class="highlight"><pre><span></span><code>$ python3 -m pip install --user mkdocs
+<div class="highlight"><pre><span></span><code>python3 -m pip install --user mkdocs
 </code></pre></div></p>
-<p>Create new site:
-<div class="highlight"><pre><span></span><code>$ mkdocs new blog
-INFO     -  Creating project directory: blog
+<p>Create new site:</p>
+<div class="highlight"><span class="filename">Create new project</span><pre><span></span><code>mkdocs new blog3
+</code></pre></div>
+<div class="result">
+<div class="highlight"><pre><span></span><code>INFO     -  Creating project directory: blog
 INFO     -  Writing config file: blog/mkdocs.yml
 INFO     -  Writing initial docs: blog/docs/index.md
-</code></pre></div></p>
+</code></pre></div>
+</div>
 <p>Python3.6 was installed as default. Blog plugin in Material for Mkdocs requires verion 9.2.0 or above python3.7 or above. Installing latest version of Material for Mkdocs under python3.6 did not work.</p>
 <div class="admonition note">
 <p class="admonition-title">Install Material for Mkdocs version 8.2.11 for python3.6</p>
 <p>Source: <a href="https://github.com/squidfunk/mkdocs-material/issues/3866">https://github.com/squidfunk/mkdocs-material/issues/3866</a></p>
 <p>Install Material for Mkdocs version 8.2.11 which is the last version compatible with python3.6. 
-<div class="highlight"><pre><span></span><code>$ python3 -m pip install --user mkdocs-material==8.2.11
+<div class="highlight"><pre><span></span><code>python3 -m pip install --user mkdocs-material==8.2.11
 </code></pre></div></p>
 </div>
 <h2 id="create-virtual-environment">Create virtual environment</h2>
 <p>Set up virtual environment to run mkdocs in python3.9.</p>
 <p>Command: 
 <div class="highlight"><pre><span></span><code>python&lt;version&gt;<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>&lt;virtual-environment-name&gt;
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>blog
-$<span class="w"> </span>python3.9<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
-$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+<span class="nb">cd</span><span class="w"> </span>blog
+python3.9<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
 <span class="o">(</span>venv<span class="o">)</span><span class="w"> </span><span class="o">[</span>sbms@L459<span class="w"> </span>blog<span class="o">]</span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material<span class="w"> </span>mkdocs-encryptcontent-plugin
 </code></pre></div></p>
 <p>Mkdocs version 1.6.0 installed</p>
@@ -890,9 +893,9 @@ plugins:
 <li>Create blog entries, following steps in <a href="https://squidfunk.github.io/mkdocs-material/tutorials/blogs/basic/">https://squidfunk.github.io/mkdocs-material/tutorials/blogs/basic/</a></li>
 </ol>
 <h3 id="start-built-in-dev-server">Start built-in dev-server:</h3>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span><span class="o">[</span>sbms@L459<span class="w"> </span>blog<span class="o">]</span>$<span class="w"> </span>mkdocs<span class="w"> </span>serve<span class="w"> </span>-a<span class="w"> </span><span class="m">192</span>.168.1.146:8000<span class="w"> </span><span class="o">(</span><span class="k">for</span><span class="w"> </span>specific<span class="w"> </span>IP<span class="o">)</span>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve<span class="w"> </span>-a<span class="w"> </span>ip.address:8000<span class="w"> </span><span class="o">(</span><span class="k">for</span><span class="w"> </span>specific<span class="w"> </span>IP<span class="w"> </span>e.g.<span class="w"> </span><span class="m">192</span>.168.1.146<span class="o">)</span>
 or
-<span class="o">(</span>venv<span class="o">)</span><span class="w"> </span><span class="o">[</span>sbms@L459<span class="w"> </span>blog<span class="o">]</span>$<span class="w"> </span>mkdocs<span class="w"> </span>serve<span class="w"> </span><span class="o">(</span><span class="k">for</span><span class="w"> </span>localhost:8000<span class="o">)</span>
+mkdocs<span class="w"> </span>serve<span class="w"> </span><span class="o">(</span><span class="k">for</span><span class="w"> </span>localhost:8000<span class="o">)</span>
 </code></pre></div>
 <h3 id="to-leave-virtual-environment">To leave virtual environment:</h3>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span><span class="o">[</span>sbms@L459<span class="w"> </span>blog<span class="o">]</span>$<span class="w"> </span>deactivate
