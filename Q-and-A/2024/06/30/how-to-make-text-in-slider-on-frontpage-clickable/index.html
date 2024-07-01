@@ -9,8 +9,8 @@
       
       
       
+        <link rel="prev" href="../../29/make-folder-writable-by-apache/">
       
-        <link rel="next" href="../../29/make-folder-writable-by-apache/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -18,7 +18,7 @@
     
     
       
-        <title>Backup/restore mysql databases - My Docs</title>
+        <title>How to make text in slider on frontpage clickable - My Docs</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backuprestore-mysql-databases" class="md-skip">
+        <a href="#how-to-make-text-in-slider-on-frontpage-clickable" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Backup/restore mysql databases
+              How to make text in slider on frontpage clickable
             
           </span>
         </div>
@@ -624,32 +624,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mysqldump-to-backup-database-to-a-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      mysqldump to backup database to a file
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restore-databases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Restore databases
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -704,7 +678,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2024-06-09 00:00:00" class="md-ellipsis">Sunday, June 9, 2024</time>
+                        <time datetime="2024-06-30 00:00:00" class="md-ellipsis">Sunday, June 30, 2024</time>
                       </div>
                     </li>
                     
@@ -716,7 +690,7 @@
                             in
                             
                               <a href="../../../../category/theorigo/">theorigo</a>, 
-                              <a href="../../../../category/mysql/">mysql</a></span>
+                              <a href="../../../../category/key-visual/">key visual</a></span>
                         </div>
                       </li>
                     
@@ -759,102 +733,89 @@
     
     
     
-      <a href="../../../../../tags/#mysql" class="md-tag">mysql</a>
+      <a href="../../../../../tags/#key-visual" class="md-tag">key visual</a>
     
   
 </nav>
 
 
 
-<h1 id="backuprestore-mysql-databases">Backup/restore mysql databases</h1>
-<p>How to back up and restore mysql databases in School server?</p>
+<h1 id="how-to-make-text-in-slider-on-frontpage-clickable">How to make text in slider on frontpage clickable</h1>
+<p>URL for image in "Key Visual" in front page is formatted incorrectly and the title text has no hyperlink. How to fix?
+<img alt="key visual errors" src="../../../../image/2024-07-01_02-23-40.png" /></p>
 <!-- more -->
 
-<h2 id="mysqldump-to-backup-database-to-a-file">mysqldump to backup database to a file</h2>
-<p>Command:
-<div class="highlight"><pre><span></span><code>mysqldump -u &lt;USERNAME&gt; -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases &lt;DATABASE&gt; | gzip &gt; DB.sql.gz 
-</code></pre></div></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Replace <code>&lt;USERNAME&gt;</code>, <code>&lt;PASSWORD&gt;</code>, <code>&lt;DATABASE&gt;</code> with real username, password and database name</p>
+<p>Edit file <code>html/theorigo/application/modules/main/views/index.twig</code>.</p>
 <ol>
-<li>sbms web site: username=sbmsnew; database=sbmsnew;</li>
-<li>teaching timetable: username=sbms; database=sbms;</li>
-<li>equipment list: username=biochem; database=biochem; </li>
-</ol>
-</div>
-<ol>
-<li>
-<p>backup database sbms (timetable etc) into sbms-DB.sql.gz 
-<div class="highlight"><pre><span></span><code>mysqldump -u sbms -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases sbms | gzip &gt; sbms-DB.sql.gz 
-</code></pre></div></p>
-</li>
-<li>
-<p>backup database sbmsnew (school web site) into sbmsnew-DB.sql.gz 
-<div class="highlight"><pre><span></span><code>mysqldump -u sbmsnew -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases sbmsnew | gzip &gt; sbmsnew-DB.sql.gz 
-</code></pre></div></p>
-</li>
-<li>
-<p>backup database biochem (equipment list) into biochem-DB.sql.gz 
-<div class="highlight"><pre><span></span><code>mysqldump -u biochem -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases biochem | gzip &gt; biochem-DB.sql.gz 
-</code></pre></div></p>
-</li>
-</ol>
-<h2 id="restore-databases">Restore databases</h2>
-<p>gunip mysqldump files:
-<div class="highlight"><pre><span></span><code>gunzip sbms-DB.sql.gz
-gunzip sbmsnew-DB.sql.gz
-gunzip biochem-DB.sql.gz
-</code></pre></div></p>
-<hr>
-<p>Log in mysql:
-    <div class="highlight"><pre><span></span><code>mysql -u &lt;USERNAME&gt; -p&lt;PASSWORD&gt;
+<li>Line #9: change from: 
+<div class="highlight"><pre><span></span><code>&lt;a{{ banner[&#39;href_target&#39;][0] }}
 </code></pre></div>
-Restore database:
-    <div class="highlight"><pre><span></span><code>mysql&gt; use &lt;DATABASE&gt;
-mysql&gt; \W
-mysql&gt; source &lt;mysqldump_file&gt;
-mysql&gt; exit
-</code></pre></div></p>
-<hr>
+ to: 
+ <div class="highlight"><pre><span></span><code>&lt;a{{ banner[&#39;href_target&#39;][0] | raw }} style=&quot;text-decoration:none&quot;&gt;
+</code></pre></div></li>
+<li>Wrap the title text <code>{{ banner['heading'][0] | raw }}</code> (line 16 of original code) the following code to add hyperlink to title text. <code>style="text-decoration:none"</code> is to remove the underline in hyperlinked text.
+<div class="highlight"><pre><span></span><code>&lt;a{{ banner[&#39;href_target&#39;][0] | raw }}  style=&quot;text-decoration:none&quot;&gt;
 
-<ol>
-<li>
-<p>Restore database sbms (for timetable etc)
-    <div class="highlight"><pre><span></span><code>mysql -u sbms -p&lt;PASSWORD&gt;
+&lt;/a&gt;
 </code></pre></div>
-    <div class="result" markdown>
-    <div class="highlight"><pre><span></span><code>mysql&gt; use sbms
-mysql&gt; \W
-mysql&gt; source sbms-DB.sql
-mysql&gt; exit
-</code></pre></div>
-    </div></p>
-</li>
-<li>
-<p>Restore database sbmsnew: (for school website etc)
-    <div class="highlight"><pre><span></span><code>mysql -u sbmsnew -p&lt;PASSWORD&gt;
-</code></pre></div>
-    <div class="result" markdown>
-    <div class="highlight"><pre><span></span><code>mysql&gt; use sbmsnew
-mysql&gt; \W
-mysql&gt; source sbmsnew-DB.sql
-mysql&gt; exit
-</code></pre></div>
-    </div></p>
-</li>
-<li>
-<p>Restore database biochem (for equipment list):
-    <div class="highlight"><pre><span></span><code>mysql -u biochem -p&lt;PASSWORD&gt;
-</code></pre></div>
-    <div class="result" markdown>
-    <div class="highlight"><pre><span></span><code>mysql&gt; use biochem
-mysql&gt; \W
-mysql&gt; source biochem-DB.sql
-mysql&gt; exit
-</code></pre></div>
-    </div></p>
-</li>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;@theme/base.twig&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+<span class="x">&lt;section class=&quot;main-top&quot;&gt;</span>
+<span class="x">    &lt;div class=&quot;slider-wrap&quot;&gt;</span>
+<span class="x">        &lt;div class=&quot;slider slider-hero&quot;&gt;</span>
+<span class="x">            </span><span class="cp">{%</span>  <span class="k">for</span> <span class="nv">banner</span> <span class="k">in</span> <span class="nv">banners</span>  <span class="cp">%}</span>
+<span class="x">            &lt;div class=&quot;slider__item slider-hero__item slick-slide&quot;&gt;</span>
+<span class="x">                &lt;div class=&quot;slider-imgC slider-hero__imgC&quot;&gt;</span>
+<span class="hll"><span class="x">                    &lt;a</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;href_target&#39;</span><span class="o">][</span><span class="m">0</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x"> style=&quot;text-decoration:none&quot;&gt; &lt;!-- Brian edited --&gt;</span>
+</span><span class="x">                        &lt;img class=&quot;hidden-xs&quot;</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;image&#39;</span><span class="o">][</span><span class="m">1</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x">&gt;</span>
+<span class="x">                        &lt;img class=&quot;visible-xs&quot;</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;mobile_image&#39;</span><span class="o">][</span><span class="m">1</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x">&gt;</span>
+<span class="x">                    &lt;/a&gt;</span>
+<span class="x">                &lt;/div&gt;</span>
+<span class="x">                &lt;div class=&quot;slider__content slider-hero__content&quot;&gt;</span>
+<span class="x">                    &lt;h1 class=&quot;slider__heading slider-hero__heading&quot;&gt;</span>
+<span class="hll"><span class="x">                        &lt;a</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;href_target&#39;</span><span class="o">][</span><span class="m">0</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x">  style=&quot;text-decoration:none&quot;&gt;  &lt;!-- Brian added, activate link to text --&gt;</span>
+</span><span class="x">                        </span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;heading&#39;</span><span class="o">][</span><span class="m">0</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span>
+<span class="hll"><span class="x">                        &lt;/a&gt; &lt;!-- Brian added --&gt;</span>
+</span><span class="x">                    &lt;/h1&gt;</span>
+<span class="x">                    &lt;div class=&quot;slider__text slider-hero__text&quot;&gt;</span>
+<span class="x">                        &lt;span&gt;</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;subheading&#39;</span><span class="o">][</span><span class="m">0</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x">&lt;/span&gt;</span>
+<span class="x">                    &lt;/div&gt;</span>
+<span class="x">                &lt;/div&gt;</span>
+<span class="x">            &lt;/div&gt;</span>
+<span class="x">            </span><span class="cp">{%</span>  <span class="k">endfor</span>  <span class="cp">%}</span>
+<span class="x">        &lt;/div&gt;</span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="x">&lt;/section&gt;</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Run clear_all_cache script to refresh: <code>http://www.sbms.hku.hk/clear_all_cache</code>
+  <img alt="key visual errors" src="../../../../image/2024-07-01_02-40-26.png" /></li>
 </ol>
 
 
