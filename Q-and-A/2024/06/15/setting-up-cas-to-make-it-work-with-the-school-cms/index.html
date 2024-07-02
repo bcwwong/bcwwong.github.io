@@ -447,6 +447,8 @@
       
         
       
+        
+      
     
     
       
@@ -497,6 +499,29 @@
   
   <span class="md-ellipsis">
     config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/hkuportal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hkuportal
   </span>
   
 
@@ -802,7 +827,8 @@
                             in
                             
                               <a href="../../../../category/theorigo/">theorigo</a>, 
-                              <a href="../../../../category/config/">config</a></span>
+                              <a href="../../../../category/config/">config</a>, 
+                              <a href="../../../../category/hkuportal/">hkuportal</a></span>
                         </div>
                       </li>
                     
@@ -848,6 +874,12 @@
       <a href="../../../../../tags/#config" class="md-tag">config</a>
     
   
+    
+    
+    
+      <a href="../../../../../tags/#hkuportal" class="md-tag">hkuportal</a>
+    
+  
 </nav>
 
 
@@ -884,64 +916,62 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">edit <code>html/theorigo/application/libraries/CAS/Client.php</code> to fix</p>
-<ul>
-<li>Under <code>public function validateCAS20</code> lines starting 2772:
-<div class="highlight"><pre><span></span><code><span class="hll"><span class="x">    } else if ($tree_response-&gt;localName != &#39;cas:serviceResponse&#39;) { /*Brian edited*/</span>
-</span><span class="x">        // insure that tag name is &#39;serviceResponse&#39;</span>
-<span class="x">        // bad root node</span>
+<p>Under <code>public function validateCAS20</code> lines starting 2772. Edit tag names (serviceResponse, authenticationSuccess, user, proxy, authenticationFailure) to include "cas:"
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="x">} else if ($tree_response-&gt;localName != &#39;cas:serviceResponse&#39;) { /*Brian edited*/</span>
+</span><span class="x">    // insure that tag name is &#39;serviceResponse&#39;</span>
+<span class="x">    // bad root node</span>
+<span class="x">    throw new CAS_AuthenticationException(</span>
+<span class="x">        $this, &#39;Ticket not validated&#39;, $validate_url,</span>
+<span class="x">        false/*$no_response*/, true/*$bad_response*/, $text_response</span>
+<span class="x">    );</span>
+<span class="x">    $result = false;</span>
+<span class="hll"><span class="x">} else if ($tree_response-&gt;getElementsByTagName(&quot;cas:authenticationSuccess&quot;)-&gt;length != 0)  { /*Brian edited*/</span>
+</span><span class="x">    // authentication succeded, extract the user name</span>
+<span class="hll"><span class="x">    $success_elements = $tree_response-&gt;getElementsByTagName(&quot;cas:authenticationSuccess&quot;); /*Brian edited*/</span>
+</span><span class="hll"><span class="x">    if ( $success_elements-&gt;item(0)-&gt;getElementsByTagName(&quot;cas:user&quot;)-&gt;length == 0) { /*Brian edited*/</span>
+</span><span class="x">        // no user specified =&gt; error</span>
 <span class="x">        throw new CAS_AuthenticationException(</span>
 <span class="x">            $this, &#39;Ticket not validated&#39;, $validate_url,</span>
 <span class="x">            false/*$no_response*/, true/*$bad_response*/, $text_response</span>
 <span class="x">        );</span>
 <span class="x">        $result = false;</span>
-<span class="hll"><span class="x">    } else if ($tree_response-&gt;getElementsByTagName(&quot;cas:authenticationSuccess&quot;)-&gt;length != 0)  { /*Brian edited*/</span>
-</span><span class="x">        // authentication succeded, extract the user name</span>
-<span class="hll"><span class="x">        $success_elements = $tree_response-&gt;getElementsByTagName(&quot;cas:authenticationSuccess&quot;); /*Brian edited*/</span>
-</span><span class="hll"><span class="x">        if ( $success_elements-&gt;item(0)-&gt;getElementsByTagName(&quot;cas:user&quot;)-&gt;length == 0) { /*Brian edited*/</span>
-</span><span class="x">            // no user specified =&gt; error</span>
+<span class="x">    } else {</span>
+<span class="hll"><span class="x">        $this-&gt;_setUser(trim($success_elements-&gt;item(0)-&gt;getElementsByTagName(&quot;cas:user&quot;)-&gt;item(0)-&gt;nodeValue)); /*Brian edited*/</span>
+</span><span class="x">        $this-&gt;_readExtraAttributesCas20($success_elements);</span>
+<span class="x">        // Store the proxies we are sitting behind for authorization checking</span>
+<span class="x">        $proxyList = array();</span>
+<span class="hll"><span class="x">        if ( sizeof($arr = $success_elements-&gt;item(0)-&gt;getElementsByTagName(&quot;cas:proxy&quot;)) &gt; 0) { /*Brian edited*/</span>
+</span><span class="x">            foreach ($arr as $proxyElem) {</span>
+<span class="x">                phpCAS::trace(&quot;Found Proxy: &quot;.$proxyElem-&gt;nodeValue);</span>
+<span class="x">                $proxyList[] = trim($proxyElem-&gt;nodeValue);</span>
+<span class="x">            }</span>
+<span class="x">            $this-&gt;_setProxies($proxyList);</span>
+<span class="x">            phpCAS::trace(&quot;Storing Proxy List&quot;);</span>
+<span class="x">        }</span>
+<span class="x">        // Check if the proxies in front of us are allowed</span>
+<span class="x">        if (!$this-&gt;getAllowedProxyChains()-&gt;isProxyListAllowed($proxyList)) {</span>
 <span class="x">            throw new CAS_AuthenticationException(</span>
-<span class="x">                $this, &#39;Ticket not validated&#39;, $validate_url,</span>
-<span class="x">                false/*$no_response*/, true/*$bad_response*/, $text_response</span>
+<span class="x">                $this, &#39;Proxy not allowed&#39;, $validate_url,</span>
+<span class="x">                false/*$no_response*/, true/*$bad_response*/,</span>
+<span class="x">                $text_response</span>
 <span class="x">            );</span>
 <span class="x">            $result = false;</span>
 <span class="x">        } else {</span>
-<span class="hll"><span class="x">            $this-&gt;_setUser(trim($success_elements-&gt;item(0)-&gt;getElementsByTagName(&quot;cas:user&quot;)-&gt;item(0)-&gt;nodeValue)); /*Brian edited*/</span>
-</span><span class="x">            $this-&gt;_readExtraAttributesCas20($success_elements);</span>
-<span class="x">            // Store the proxies we are sitting behind for authorization checking</span>
-<span class="x">            $proxyList = array();</span>
-<span class="hll"><span class="x">            if ( sizeof($arr = $success_elements-&gt;item(0)-&gt;getElementsByTagName(&quot;cas:proxy&quot;)) &gt; 0) { /*Brian edited*/</span>
-</span><span class="x">                foreach ($arr as $proxyElem) {</span>
-<span class="x">                    phpCAS::trace(&quot;Found Proxy: &quot;.$proxyElem-&gt;nodeValue);</span>
-<span class="x">                    $proxyList[] = trim($proxyElem-&gt;nodeValue);</span>
-<span class="x">                }</span>
-<span class="x">                $this-&gt;_setProxies($proxyList);</span>
-<span class="x">                phpCAS::trace(&quot;Storing Proxy List&quot;);</span>
-<span class="x">            }</span>
-<span class="x">            // Check if the proxies in front of us are allowed</span>
-<span class="x">            if (!$this-&gt;getAllowedProxyChains()-&gt;isProxyListAllowed($proxyList)) {</span>
-<span class="x">                throw new CAS_AuthenticationException(</span>
-<span class="x">                    $this, &#39;Proxy not allowed&#39;, $validate_url,</span>
-<span class="x">                    false/*$no_response*/, true/*$bad_response*/,</span>
-<span class="x">                    $text_response</span>
-<span class="x">                );</span>
-<span class="x">                $result = false;</span>
-<span class="x">            } else {</span>
-<span class="x">                $result = true;</span>
-<span class="x">            }</span>
+<span class="x">            $result = true;</span>
 <span class="x">        }</span>
-<span class="hll"><span class="x">    } else if ( $tree_response-&gt;getElementsByTagName(&quot;cas:authenticationFailure&quot;)-&gt;length != 0) { /*Brian edited*/</span>
-</span><span class="x">        // authentication succeded, extract the error code and message</span>
-<span class="hll"><span class="x">        $auth_fail_list = $tree_response-&gt;getElementsByTagName(&quot;cas:authenticationFailure&quot;); /*Brian edited*/</span>
-</span><span class="x">        throw new CAS_AuthenticationException(</span>
-<span class="x">            $this, &#39;Ticket not validated&#39;, $validate_url,</span>
-<span class="x">            false/*$no_response*/, false/*$bad_response*/,</span>
-<span class="x">            $text_response,</span>
-<span class="x">            $auth_fail_list-&gt;item(0)-&gt;getAttribute(&#39;code&#39;)/*$err_code*/,</span>
-<span class="x">            trim($auth_fail_list-&gt;item(0)-&gt;nodeValue)/*$err_msg*/</span>
-<span class="x">        );</span>
-<span class="x">        $result = false;</span>
-</code></pre></div></li>
-</ul>
+<span class="x">    }</span>
+<span class="hll"><span class="x">} else if ( $tree_response-&gt;getElementsByTagName(&quot;cas:authenticationFailure&quot;)-&gt;length != 0) { /*Brian edited*/</span>
+</span><span class="x">    // authentication succeded, extract the error code and message</span>
+<span class="hll"><span class="x">    $auth_fail_list = $tree_response-&gt;getElementsByTagName(&quot;cas:authenticationFailure&quot;); /*Brian edited*/</span>
+</span><span class="x">    throw new CAS_AuthenticationException(</span>
+<span class="x">        $this, &#39;Ticket not validated&#39;, $validate_url,</span>
+<span class="x">        false/*$no_response*/, false/*$bad_response*/,</span>
+<span class="x">        $text_response,</span>
+<span class="x">        $auth_fail_list-&gt;item(0)-&gt;getAttribute(&#39;code&#39;)/*$err_code*/,</span>
+<span class="x">        trim($auth_fail_list-&gt;item(0)-&gt;nodeValue)/*$err_msg*/</span>
+<span class="x">    );</span>
+<span class="x">    $result = false;</span>
+</code></pre></div></p>
 </div>
 <h2 id="edit-clientphp-again">Edit Client.php again</h2>
 <div class="admonition warning">
