@@ -816,21 +816,14 @@
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="how-to-require-hkuportal-for-admin-login"><a class="toclink" href="../../2024/07/02/how-to-require-hkuportal-for-admin-login/">How to require hkuportal for admin login</a></h2>
-<ol>
-<li>Edit <code>html/theorigo/application/config/theorigo.php</code>, go to section <code>### Config for LDAP</code></li>
-<li>Uncomment <code>define('CAS_LOGIN', 'defined');</code> to use hkuportal login.</li>
-<li>Set host to hkuportal.hku.hk</li>
-<li>Comment out <code># define('CAS_LOGIN', 'defined');</code> to turn off hkuportal login.</li>
-</ol>
-<div class="highlight"><span class="filename">Edit html/theorigo/application/config/theorigo.php to use hkuportal login for admin</span><pre><span></span><code><span class="x">### Config for LDAP</span>
-<span class="hll"><span class="x">define(&#39;CAS_LOGIN&#39;, &#39;defined&#39;); /* Uncomment to turn on admin login with hkuportal - Brian added */</span>
-</span><span class="x">$config[&#39;cas_login&#39;] = array(</span>
-<span class="hll"><span class="x">                            &#39;host&#39; =&gt; &#39;hkuportal.hku.hk&#39;, /* Brian changed to use hkuportal */</span>
-</span><span class="x">                            &#39;port&#39; =&gt; &#39;443&#39;,</span>
-<span class="x">                            &#39;uri&#39; =&gt; &#39;/cas&#39;,</span>
-<span class="x">                            &#39;change_session_id&#39; =&gt; false</span>
-<span class="x">                        );</span>
-</code></pre></div>
+<p><img alt="admin login" src="../../image/2024-07-02_09-51-09.png" /></p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../2024/07/02/how-to-require-hkuportal-for-admin-login/">
+          Continue reading
+        </a>
+      </nav>
     
   </div>
 </article>

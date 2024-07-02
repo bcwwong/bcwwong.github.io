@@ -816,6 +816,12 @@
 
 
 <h1 id="how-to-require-hkuportal-for-admin-login">How to require hkuportal for admin login</h1>
+<p><img alt="admin login" src="../../../../image/2024-07-02_09-51-09.png" /></p>
+<!-- more -->
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use hkuportal to validate CMS admin user. Admin username should be the same as hkuportal UID for this to work.</p>
+</div>
 <ol>
 <li>Edit <code>html/theorigo/application/config/theorigo.php</code>, go to section <code>### Config for LDAP</code></li>
 <li>Uncomment <code>define('CAS_LOGIN', 'defined');</code> to use hkuportal login.</li>
