@@ -450,6 +450,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#how-to-require-hkuportal-for-admin-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to require hkuportal for admin login
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-to-include-links-to-social-media-on-page-header" class="md-nav__link">
     <span class="md-ellipsis">
       How to include links to social media on page header
@@ -523,6 +532,8 @@
       
         
       
+        
+      
     
     
       
@@ -558,6 +569,29 @@
             Categories
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../category/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -759,6 +793,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#how-to-require-hkuportal-for-admin-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to require hkuportal for admin login
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-to-include-links-to-social-media-on-page-header" class="md-nav__link">
     <span class="md-ellipsis">
       How to include links to social media on page header
@@ -808,6 +851,61 @@
       <header class="md-typeset">
         <h1 id="2024">2024</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="../../image/brianWong-300.jpg" alt="Brian Wong">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-07-02 00:00:00">Tuesday, July 2, 2024</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/theorigo/" class="md-meta__link">theorigo</a>, 
+              <a href="../../category/config/" class="md-meta__link">config</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="how-to-require-hkuportal-for-admin-login"><a class="toclink" href="../../2024/07/02/how-to-require-hkuportal-for-admin-login/">How to require hkuportal for admin login</a></h2>
+<ol>
+<li>Edit <code>html/theorigo/application/config/theorigo.php</code>, go to section <code>### Config for LDAP</code></li>
+<li>Uncomment <code>define('CAS_LOGIN', 'defined');</code> to use hkuportal login.</li>
+<li>Set host to hkuportal.hku.hk</li>
+<li>Comment out <code># define('CAS_LOGIN', 'defined');</code> to turn off hkuportal login.</li>
+</ol>
+<div class="highlight"><span class="filename">Edit html/theorigo/application/config/theorigo.php to use hkuportal login for admin</span><pre><span></span><code><span class="x">### Config for LDAP</span>
+<span class="hll"><span class="x">define(&#39;CAS_LOGIN&#39;, &#39;defined&#39;); /* Uncomment to turn on admin login with hkuportal - Brian added */</span>
+</span><span class="x">$config[&#39;cas_login&#39;] = array(</span>
+<span class="hll"><span class="x">                            &#39;host&#39; =&gt; &#39;hkuportal.hku.hk&#39;, /* Brian changed to use hkuportal */</span>
+</span><span class="x">                            &#39;port&#39; =&gt; &#39;443&#39;,</span>
+<span class="x">                            &#39;uri&#39; =&gt; &#39;/cas&#39;,</span>
+<span class="x">                            &#39;change_session_id&#39; =&gt; false</span>
+<span class="x">                        );</span>
+</code></pre></div>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">

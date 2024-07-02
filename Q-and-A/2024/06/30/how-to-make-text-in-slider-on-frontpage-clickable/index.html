@@ -445,6 +445,8 @@
       
         
       
+        
+      
     
     
       
@@ -480,6 +482,29 @@
             Categories
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -810,7 +835,7 @@
 
 &lt;/a&gt;
 </code></pre></div>
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+  <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Edit html/theorigo/application/modules/main/views/index.twig</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -837,34 +862,34 @@
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;@theme/base.twig&#39;</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
-<span class="x">&lt;section class=&quot;main-top&quot;&gt;</span>
-<span class="x">    &lt;div class=&quot;slider-wrap&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;slider slider-hero&quot;&gt;</span>
-<span class="x">            </span><span class="cp">{%</span>  <span class="k">for</span> <span class="nv">banner</span> <span class="k">in</span> <span class="nv">banners</span>  <span class="cp">%}</span>
-<span class="x">            &lt;div class=&quot;slider__item slider-hero__item slick-slide&quot;&gt;</span>
-<span class="x">                &lt;div class=&quot;slider-imgC slider-hero__imgC&quot;&gt;</span>
-<span class="hll"><span class="x">                    &lt;a</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;href_target&#39;</span><span class="o">][</span><span class="m">0</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x"> style=&quot;text-decoration:none&quot;&gt; &lt;!-- Brian edited --&gt;</span>
-</span><span class="x">                        &lt;img class=&quot;hidden-xs&quot;</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;image&#39;</span><span class="o">][</span><span class="m">1</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x">&gt;</span>
-<span class="x">                        &lt;img class=&quot;visible-xs&quot;</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;mobile_image&#39;</span><span class="o">][</span><span class="m">1</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x">&gt;</span>
-<span class="x">                    &lt;/a&gt;</span>
-<span class="x">                &lt;/div&gt;</span>
-<span class="x">                &lt;div class=&quot;slider__content slider-hero__content&quot;&gt;</span>
-<span class="x">                    &lt;h1 class=&quot;slider__heading slider-hero__heading&quot;&gt;</span>
-<span class="hll"><span class="x">                        &lt;a</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;href_target&#39;</span><span class="o">][</span><span class="m">0</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x">  style=&quot;text-decoration:none&quot;&gt;  &lt;!-- Brian added, activate link to text --&gt;</span>
-</span><span class="x">                        </span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;heading&#39;</span><span class="o">][</span><span class="m">0</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span>
-<span class="hll"><span class="x">                        &lt;/a&gt; &lt;!-- Brian added --&gt;</span>
-</span><span class="x">                    &lt;/h1&gt;</span>
-<span class="x">                    &lt;div class=&quot;slider__text slider-hero__text&quot;&gt;</span>
-<span class="x">                        &lt;span&gt;</span><span class="cp">{{</span> <span class="nv">banner</span><span class="o">[</span><span class="s1">&#39;subheading&#39;</span><span class="o">][</span><span class="m">0</span><span class="o">]</span> <span class="o">|</span> <span class="nf">raw</span> <span class="cp">}}</span><span class="x">&lt;/span&gt;</span>
-<span class="x">                    &lt;/div&gt;</span>
-<span class="x">                &lt;/div&gt;</span>
-<span class="x">            &lt;/div&gt;</span>
-<span class="x">            </span><span class="cp">{%</span>  <span class="k">endfor</span>  <span class="cp">%}</span>
-<span class="x">        &lt;/div&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="x">&lt;/section&gt;</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>{% extends &#39;@theme/base.twig&#39; %}
+{% block content %}
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;main-top&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slider-wrap&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slider slider-hero&quot;</span><span class="p">&gt;</span>
+            {%  for banner in banners  %}
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slider__item slider-hero__item slick-slide&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slider-imgC slider-hero__imgC&quot;</span><span class="p">&gt;</span>
+<span class="hll">                    <span class="p">&lt;</span><span class="nt">a</span><span class="err">{{</span> <span class="na">banner</span><span class="err">[&#39;</span><span class="na">href_target</span><span class="err">&#39;][</span><span class="na">0</span><span class="err">]</span> <span class="err">|</span> <span class="na">raw</span> <span class="err">}}</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-decoration:none&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Brian edited --&gt;</span>
+</span>                        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;hidden-xs&quot;</span><span class="err">{{</span> <span class="na">banner</span><span class="err">[&#39;</span><span class="na">image</span><span class="err">&#39;][</span><span class="na">1</span><span class="err">]</span> <span class="err">|</span> <span class="na">raw</span> <span class="err">}}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;visible-xs&quot;</span><span class="err">{{</span> <span class="na">banner</span><span class="err">[&#39;</span><span class="na">mobile_image</span><span class="err">&#39;][</span><span class="na">1</span><span class="err">]</span> <span class="err">|</span> <span class="na">raw</span> <span class="err">}}</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slider__content slider-hero__content&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slider__heading slider-hero__heading&quot;</span><span class="p">&gt;</span>
+<span class="hll">                        <span class="p">&lt;</span><span class="nt">a</span><span class="err">{{</span> <span class="na">banner</span><span class="err">[&#39;</span><span class="na">href_target</span><span class="err">&#39;][</span><span class="na">0</span><span class="err">]</span> <span class="err">|</span> <span class="na">raw</span> <span class="err">}}</span>  <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-decoration:none&quot;</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- Brian added, activate link to text --&gt;</span>
+</span>                        {{ banner[&#39;heading&#39;][0] | raw }}
+<span class="hll">                        <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Brian added --&gt;</span>
+</span>                    <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slider__text slider-hero__text&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>{{ banner[&#39;subheading&#39;][0] | raw }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            {%  endfor  %}
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div></li>
 <li>Run clear_all_cache script to refresh: <code>http://www.sbms.hku.hk/clear_all_cache</code>
   <img alt="key visual errors" src="../../../../image/2024-07-01_02-40-26.png" /></li>
