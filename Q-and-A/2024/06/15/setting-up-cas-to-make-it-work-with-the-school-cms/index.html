@@ -9,8 +9,10 @@
       
       
       
+        <link rel="prev" href="../../09/backuprestore-mysql-databases/">
       
-        <link rel="next" href="../../15/setting-up-cas-to-make-it-work-with-the-school-cms/">
+      
+        <link rel="next" href="../../29/make-folder-writable-by-apache/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Backup/restore mysql databases - My Docs</title>
+        <title>Setting up CAS to make it work with the school CMS - My Docs</title>
       
     
     
@@ -68,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backuprestore-mysql-databases" class="md-skip">
+        <a href="#setting-up-cas-to-make-it-work-with-the-school-cms" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Backup/restore mysql databases
+              Setting up CAS to make it work with the school CMS
             
           </span>
         </div>
@@ -706,18 +708,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mysqldump-to-backup-database-to-a-file" class="md-nav__link">
+  <a href="#edit-autoloadphp" class="md-nav__link">
     <span class="md-ellipsis">
-      mysqldump to backup database to a file
+      Edit Autoload.php
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#restore-databases" class="md-nav__link">
+  <a href="#edit-clientphp" class="md-nav__link">
     <span class="md-ellipsis">
-      Restore databases
+      Edit Client.php
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-clientphp-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit Client.php again
     </span>
   </a>
   
@@ -779,7 +790,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2024-06-09 00:00:00" class="md-ellipsis">Sunday, June 9, 2024</time>
+                        <time datetime="2024-06-15 00:00:00" class="md-ellipsis">Saturday, June 15, 2024</time>
                       </div>
                     </li>
                     
@@ -791,7 +802,7 @@
                             in
                             
                               <a href="../../../../category/theorigo/">theorigo</a>, 
-                              <a href="../../../../category/mysql/">mysql</a></span>
+                              <a href="../../../../category/config/">config</a></span>
                         </div>
                       </li>
                     
@@ -802,7 +813,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                           <span class="md-ellipsis">
                             
-                              2 min read
+                              3 min read
                             
                           </span>
                         </div>
@@ -834,103 +845,127 @@
     
     
     
-      <a href="../../../../../tags/#mysql" class="md-tag">mysql</a>
+      <a href="../../../../../tags/#config" class="md-tag">config</a>
     
   
 </nav>
 
 
 
-<h1 id="backuprestore-mysql-databases">Backup/restore mysql databases</h1>
-<p>How to back up and restore mysql databases in School server?</p>
+<h1 id="setting-up-cas-to-make-it-work-with-the-school-cms">Setting up CAS to make it work with the school CMS</h1>
+<p><img alt="cas_error" src="../../../../image/2024-07-02_10-33-36.png" /></p>
 <!-- more -->
-
-<h2 id="mysqldump-to-backup-database-to-a-file">mysqldump to backup database to a file</h2>
-<p>Command:
-<div class="highlight"><pre><span></span><code>mysqldump -u &lt;USERNAME&gt; -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases &lt;DATABASE&gt; | gzip &gt; DB.sql.gz 
-</code></pre></div></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Replace <code>&lt;USERNAME&gt;</code>, <code>&lt;PASSWORD&gt;</code>, <code>&lt;DATABASE&gt;</code> with real username, password and database name</p>
+<p>phpCAS 1.3.2 is included in the school CMS. Two files needed to be edited to make phpCAS work with hkuportal:</p>
 <ol>
-<li>sbms web site: username=sbmsnew; database=sbmsnew;</li>
-<li>teaching timetable: username=sbms; database=sbms;</li>
-<li>equipment list: username=biochem; database=biochem; </li>
+<li>Edit <code>html/theorigo/application/libraries/CAS/Autoload.php</code></li>
+<li>Edit <code>html/theorigo/application/libraries/CAS/Client.php</code></li>
 </ol>
+<h2 id="edit-autoloadphp">Edit <code>Autoload.php</code></h2>
+<div class="admonition warning">
+<p class="admonition-title">error in Autoload.php</p>
+<p>Turn on error reporting in <code>html/index.php</code>
+<div class="highlight"><pre><span></span><code>Deprecated: __autoload() is deprecated, use spl_autoload_register() instead in /disk1/sbm/sbms/html/theorigo/application/libraries/CAS/Autoload.php on line 91
+</code></pre></div></p>
 </div>
-<ol>
-<li>
-<p>backup database sbms (timetable etc) into sbms-DB.sql.gz 
-<div class="highlight"><pre><span></span><code>mysqldump -u sbms -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases sbms | gzip &gt; sbms-DB.sql.gz 
+<div class="admonition note">
+<p class="admonition-title">Edit html/theorigo/application/libraries/CAS/Autoload.php</p>
+<p>Edit line 91:
+<div class="highlight"><span class="filename">replace __autoload() with spl_autoload_register()</span><pre><span></span><code><span class="hll"><span class="x">    # function __autoload($class) /*replaced with spl_autoload_register() by Brian*/</span>
+</span><span class="hll"><span class="x">    function spl_autoload_register($class) /*added by Brian*/</span>
+</span><span class="x">    {</span>
+<span class="x">        return CAS_autoload($class);</span>
+<span class="x">    }</span>
 </code></pre></div></p>
-</li>
-<li>
-<p>backup database sbmsnew (school web site) into sbmsnew-DB.sql.gz 
-<div class="highlight"><pre><span></span><code>mysqldump -u sbmsnew -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases sbmsnew | gzip &gt; sbmsnew-DB.sql.gz 
-</code></pre></div></p>
-</li>
-<li>
-<p>backup database biochem (equipment list) into biochem-DB.sql.gz 
-<div class="highlight"><pre><span></span><code>mysqldump -u biochem -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases biochem | gzip &gt; biochem-DB.sql.gz 
-</code></pre></div></p>
-</li>
-</ol>
-<h2 id="restore-databases">Restore databases</h2>
-<p>gunip mysqldump files:
-<div class="highlight"><pre><span></span><code>gunzip sbms-DB.sql.gz
-gunzip sbmsnew-DB.sql.gz
-gunzip biochem-DB.sql.gz
-</code></pre></div></p>
-<hr>
-<p>Log in mysql:
-    <div class="highlight"><pre><span></span><code>mysql -u &lt;USERNAME&gt; -p&lt;PASSWORD&gt;
+</div>
+<h2 id="edit-clientphp">Edit <code>Client.php</code></h2>
+<div class="admonition warning">
+<p class="admonition-title">Errors reported in html/theorigo/application/libraries/CAS/Client.php</p>
+<p><img alt="CAS errors" src="../../../../image/2024-06-11_00-43-18.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">edit <code>html/theorigo/application/libraries/CAS/Client.php</code> to fix</p>
+<ul>
+<li>Under <code>public function validateCAS20</code> lines starting 2772:
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="x">    } else if ($tree_response-&gt;localName != &#39;cas:serviceResponse&#39;) { /*Brian edited*/</span>
+</span><span class="x">        // insure that tag name is &#39;serviceResponse&#39;</span>
+<span class="x">        // bad root node</span>
+<span class="x">        throw new CAS_AuthenticationException(</span>
+<span class="x">            $this, &#39;Ticket not validated&#39;, $validate_url,</span>
+<span class="x">            false/*$no_response*/, true/*$bad_response*/, $text_response</span>
+<span class="x">        );</span>
+<span class="x">        $result = false;</span>
+<span class="hll"><span class="x">    } else if ($tree_response-&gt;getElementsByTagName(&quot;cas:authenticationSuccess&quot;)-&gt;length != 0)  { /*Brian edited*/</span>
+</span><span class="x">        // authentication succeded, extract the user name</span>
+<span class="hll"><span class="x">        $success_elements = $tree_response-&gt;getElementsByTagName(&quot;cas:authenticationSuccess&quot;); /*Brian edited*/</span>
+</span><span class="hll"><span class="x">        if ( $success_elements-&gt;item(0)-&gt;getElementsByTagName(&quot;cas:user&quot;)-&gt;length == 0) { /*Brian edited*/</span>
+</span><span class="x">            // no user specified =&gt; error</span>
+<span class="x">            throw new CAS_AuthenticationException(</span>
+<span class="x">                $this, &#39;Ticket not validated&#39;, $validate_url,</span>
+<span class="x">                false/*$no_response*/, true/*$bad_response*/, $text_response</span>
+<span class="x">            );</span>
+<span class="x">            $result = false;</span>
+<span class="x">        } else {</span>
+<span class="hll"><span class="x">            $this-&gt;_setUser(trim($success_elements-&gt;item(0)-&gt;getElementsByTagName(&quot;cas:user&quot;)-&gt;item(0)-&gt;nodeValue)); /*Brian edited*/</span>
+</span><span class="x">            $this-&gt;_readExtraAttributesCas20($success_elements);</span>
+<span class="x">            // Store the proxies we are sitting behind for authorization checking</span>
+<span class="x">            $proxyList = array();</span>
+<span class="hll"><span class="x">            if ( sizeof($arr = $success_elements-&gt;item(0)-&gt;getElementsByTagName(&quot;cas:proxy&quot;)) &gt; 0) { /*Brian edited*/</span>
+</span><span class="x">                foreach ($arr as $proxyElem) {</span>
+<span class="x">                    phpCAS::trace(&quot;Found Proxy: &quot;.$proxyElem-&gt;nodeValue);</span>
+<span class="x">                    $proxyList[] = trim($proxyElem-&gt;nodeValue);</span>
+<span class="x">                }</span>
+<span class="x">                $this-&gt;_setProxies($proxyList);</span>
+<span class="x">                phpCAS::trace(&quot;Storing Proxy List&quot;);</span>
+<span class="x">            }</span>
+<span class="x">            // Check if the proxies in front of us are allowed</span>
+<span class="x">            if (!$this-&gt;getAllowedProxyChains()-&gt;isProxyListAllowed($proxyList)) {</span>
+<span class="x">                throw new CAS_AuthenticationException(</span>
+<span class="x">                    $this, &#39;Proxy not allowed&#39;, $validate_url,</span>
+<span class="x">                    false/*$no_response*/, true/*$bad_response*/,</span>
+<span class="x">                    $text_response</span>
+<span class="x">                );</span>
+<span class="x">                $result = false;</span>
+<span class="x">            } else {</span>
+<span class="x">                $result = true;</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+<span class="hll"><span class="x">    } else if ( $tree_response-&gt;getElementsByTagName(&quot;cas:authenticationFailure&quot;)-&gt;length != 0) { /*Brian edited*/</span>
+</span><span class="x">        // authentication succeded, extract the error code and message</span>
+<span class="hll"><span class="x">        $auth_fail_list = $tree_response-&gt;getElementsByTagName(&quot;cas:authenticationFailure&quot;); /*Brian edited*/</span>
+</span><span class="x">        throw new CAS_AuthenticationException(</span>
+<span class="x">            $this, &#39;Ticket not validated&#39;, $validate_url,</span>
+<span class="x">            false/*$no_response*/, false/*$bad_response*/,</span>
+<span class="x">            $text_response,</span>
+<span class="x">            $auth_fail_list-&gt;item(0)-&gt;getAttribute(&#39;code&#39;)/*$err_code*/,</span>
+<span class="x">            trim($auth_fail_list-&gt;item(0)-&gt;nodeValue)/*$err_msg*/</span>
+<span class="x">        );</span>
+<span class="x">        $result = false;</span>
+</code></pre></div></li>
+</ul>
+</div>
+<h2 id="edit-clientphp-again">Edit Client.php again</h2>
+<div class="admonition warning">
+<p class="admonition-title">More errors reported in html/theorigo/application/libraries/CAS/Client.php</p>
+<div class="highlight"><pre><span></span><code>Warning: &quot;continue&quot; targeting switch is equivalent to &quot;break&quot;. Did you mean to use &quot;continue 2&quot;? in /disk1/sbm/sbms/html/theorigo/application/libraries/CAS/Client.php on line 2930
 </code></pre></div>
-Restore database:
-    <div class="highlight"><pre><span></span><code>mysql&gt; use &lt;DATABASE&gt;
-mysql&gt; \W
-mysql&gt; source &lt;mysqldump_file&gt;
-mysql&gt; exit
-</code></pre></div></p>
-<hr>
-
-<ol>
-<li>
-<p>Restore database sbms (for timetable etc)
-    <div class="highlight"><pre><span></span><code>mysql -u sbms -p&lt;PASSWORD&gt;
+</div>
+<div class="admonition note">
+<p class="admonition-title">edit html/theorigo/application/libraries/CAS/Client.php line 2930:</p>
+<p>Source: <a href="https://wiki.php.net/rfc/continue_on_switch_deprecation">https://wiki.php.net/rfc/continue_on_switch_deprecation</a></p>
+<div class="highlight"><span class="filename">Change continue to break</span><pre><span></span><code><span class="x">    phpCas :: trace(&quot;Testing for rubycas style attributes&quot;);</span>
+<span class="x">            $childnodes = $success_elements-&gt;item(0)-&gt;childNodes;</span>
+<span class="x">            foreach ($childnodes as $attr_node) {</span>
+<span class="x">                switch ($attr_node-&gt;localName) {</span>
+<span class="x">                case &#39;user&#39;:</span>
+<span class="x">                case &#39;proxies&#39;:</span>
+<span class="x">                case &#39;proxyGrantingTicket&#39;:</span>
+<span class="hll"><span class="x">                    break; # continue; /*change continue to break by Brian*/</span>
+</span><span class="x">                default:</span>
+<span class="x">                    if (strlen(trim($attr_node-&gt;nodeValue))) {</span>
+<span class="x">                        phpCas :: trace(&quot;Attribute [&quot;.$attr_node-&gt;localName.&quot;] = &quot;.$attr_node-&gt;nodeValue);</span>
+<span class="x">                        $this-&gt;_addAttributeToArray($extra_attributes, $attr_node-&gt;localName, $attr_node-&gt;nodeValue);</span>
 </code></pre></div>
-    <div class="result" markdown>
-    <div class="highlight"><pre><span></span><code>mysql&gt; use sbms
-mysql&gt; \W
-mysql&gt; source sbms-DB.sql
-mysql&gt; exit
-</code></pre></div>
-    </div></p>
-</li>
-<li>
-<p>Restore database sbmsnew: (for school website etc)
-    <div class="highlight"><pre><span></span><code>mysql -u sbmsnew -p&lt;PASSWORD&gt;
-</code></pre></div>
-    <div class="result" markdown>
-    <div class="highlight"><pre><span></span><code>mysql&gt; use sbmsnew
-mysql&gt; \W
-mysql&gt; source sbmsnew-DB.sql
-mysql&gt; exit
-</code></pre></div>
-    </div></p>
-</li>
-<li>
-<p>Restore database biochem (for equipment list):
-    <div class="highlight"><pre><span></span><code>mysql -u biochem -p&lt;PASSWORD&gt;
-</code></pre></div>
-    <div class="result" markdown>
-    <div class="highlight"><pre><span></span><code>mysql&gt; use biochem
-mysql&gt; \W
-mysql&gt; source biochem-DB.sql
-mysql&gt; exit
-</code></pre></div>
-    </div></p>
-</li>
-</ol>
+</div>
 
 
 
