@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../22/how-to-require-hkuportal-to-view-about-uscommittees/">
+        <link rel="prev" href="../how-to-require-hkuportal-to-view-support-staff-page/">
       
       
-        <link rel="next" href="../../30/how-to-make-text-in-slider-on-frontpage-clickable/">
+        <link rel="next" href="../../29/make-folder-writable-by-apache/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Make folder writable by Apache - My Docs</title>
+        <title>How to require hkuportal to view /about-us/committees - My Docs</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#make-folder-writable-by-apache" class="md-skip">
+        <a href="#how-to-require-hkuportal-to-view-about-uscommittees" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Make folder writable by Apache
+              How to require hkuportal to view /about-us/committees
             
           </span>
         </div>
@@ -780,7 +780,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2024-06-29 00:00:00" class="md-ellipsis">Saturday, June 29, 2024</time>
+                        <time datetime="2024-06-22 00:00:00" class="md-ellipsis">Saturday, June 22, 2024</time>
                       </div>
                     </li>
                     
@@ -792,7 +792,7 @@
                             in
                             
                               <a href="../../../../category/theorigo/">theorigo</a>, 
-                              <a href="../../../../category/linux/">linux</a></span>
+                              <a href="../../../../category/hkuportal/">hkuportal</a></span>
                         </div>
                       </li>
                     
@@ -835,35 +835,47 @@
     
     
     
-      <a href="../../../../../tags/#linux" class="md-tag">linux</a>
+      <a href="../../../../../tags/#hkuportal" class="md-tag">hkuportal</a>
     
   
 </nav>
 
 
 
-<h1 id="make-folder-writable-by-apache">Make folder writable by Apache</h1>
-<p>The <code>~/html/writables</code> folder in School server needed to be writable by Apache. Use <code>setfacl</code> command to change access control of these folders so Apache can write to these folder. User (sbms) can delete files created by Apache.</p>
+<h1 id="how-to-require-hkuportal-to-view-about-uscommittees">How to require hkuportal to view /about-us/committees</h1>
+<p><img alt="hkuportal login" src="../../../../image/2024-07-02_11-41-34.png" /></p>
 <!-- more -->
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ensure user has a hkuportal UID (HKU member) before accessing the page.</p>
+</div>
+<ol>
+<li>Copy <code>/html/theorigo/application/modules/page/controllers/Page.php</code> as <code>Page-original.php</code></li>
+<li>Replace Page.php with the following:
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;BASEPATH&#39;</span><span class="p">))</span> <span class="k">exit</span><span class="p">(</span><span class="s1">&#39;No direct script access allowed&#39;</span><span class="p">);</span>
+<span class="c1">#Brian modified to include HKU portal login#</span>
 
-<p>Command:
-<div class="highlight"><pre><span></span><code>setfacl -R -m d:u:sbms:rwx,u:sbms:rwx,d:u:apache:rwx,u:apache:rwx &lt;FOLDER&gt;
-</code></pre></div></p>
-<div class="highlight"><pre><span></span><code>[sbms@webcloud01 html]$ ls -l
-drwxrwxr-x. 12 sbms sbm   4096 Jul 22  2023 writables
-</code></pre></div>
-<p>Change permissions for html/writables folder to be writable by apache web server
-<div class="highlight"><pre><span></span><code>$ setfacl -R -m d:u:sbms:rwx,u:sbms:rwx,d:u:apache:rwx,u:apache:rwx /disk1/sbm/sbms/html/writables
-</code></pre></div></p>
-<p>Check folder permission after <code>setfacl</code> command (note the '+' character after directory listing):
-<div class="highlight"><pre><span></span><code>[sbms@webcloud01 html]$ ls -l
-drwxrwxr-x+ 12 sbms sbm   4096 Jul 22  2023 writables
-</code></pre></div></p>
-<div class="admonition note">
-<p class="admonition-title">Additional folders may also need to be writable by Apache</p>
-<p>Make <code>html/theorigo/application/logs</code> folder writable by Apache if you want to output application log to the default log folder. Alternatively, you can save the application log to ~/html/writables/logs
-<div class="highlight"><pre><span></span><code>/disk1/sbm/sbms/html/theorigo/application/logs 
-</code></pre></div></p>
+<span class="nv">$page_url</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_URI&#39;</span><span class="p">];</span>
+
+<span class="nv">$page_require_portal</span> <span class="o">=</span> <span class="s2">&quot;/(about-us\/committees)/&quot;</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">preg_match</span><span class="p">(</span><span class="nv">$page_require_portal</span><span class="p">,</span> <span class="nv">$page_url</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">//require_once(__DIR__ . &quot;/phpCAS-1.4.0/vendor/autoload.php&quot;);</span>
+    <span class="k">require_once</span><span class="p">(</span><span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;/libraries/CAS.php&#39;</span><span class="p">);</span>
+    <span class="nx">phpCAS</span><span class="o">::</span><span class="na">client</span><span class="p">(</span><span class="nx">CAS_VERSION_2_0</span><span class="p">,</span> <span class="s1">&#39;hkuportal.hku.hk&#39;</span><span class="p">,</span> <span class="mi">443</span><span class="p">,</span> <span class="s1">&#39;/cas&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+    <span class="nx">phpCAS</span><span class="o">::</span><span class="na">setNoCasServerValidation</span><span class="p">();</span>     <span class="c1">// Not recommended in production environment</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">phpCAS</span><span class="o">::</span><span class="na">isAuthenticated</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">include</span><span class="p">(</span><span class="s1">&#39;Page-original.php&#39;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">phpCAS</span><span class="o">::</span><span class="na">forceAuthentication</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">include</span><span class="p">(</span><span class="s1">&#39;Page-original.php&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure phpCAS work with hkuportal.</p>
 </div>
 
 
