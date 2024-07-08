@@ -873,8 +873,8 @@
 <li>Server: intraweb.hku.hk</li>
 <li>Username/password: same as that in www.sbms.hku.hk</li>
 <li>Available directories: <ul>
-<li><code>/web/docs/local/sbms/</code> (default login directory)</li>
-<li><code>/web/docs/reserved_1/sbms/</code></li>
+<li><code>/web/docs/local/sbms/</code> (default login directory; content accessible by computers in campus network)</li>
+<li><code>/web/docs/reserved_1/sbms/</code> (files accessible to users with valid hkuportal account)</li>
 </ul>
 </li>
 </ul>
@@ -898,14 +898,14 @@
 <!-- <img alt="intraweb_1" src="../image/2024-07-09_03-17-47.png" /> --></p>
 <ul>
 <li>Anyone with a valid portal account can access the file. </li>
-<li>You can limit access to selected staff or studnets by including a acl.txt file in the same directory as the files to be served. List the staff hkuportal IDs or student UIDs, one per each line in acl.txt file. Access control will be enforced on all files within the same directory. Example of the acl.txt file:
+<li>You can limit access to selected staff or studnets by including an access control list  ("acl.txt")  in the same directory as the files to be served. List the staff hkuportal IDs or student UIDs, one per each line in acl.txt file. Access control will be enforced on all files within the same directory. Example of the acl.txt file:
 <div class="highlight"><pre><span></span><code>14803
 104431
 120045
 116715
 3035792705
 </code></pre></div></li>
-<li>You can create multiple sub-directories each with a different acl.txt file to tailor for different group of people.</li>
+<li>You can create multiple sub-directories each with a differentaccess control list ("acl.txt") to tailor for different group of people.</li>
 <li>Error message will appear if user is not on acl.txt:
 <img alt="error" src="../../../../image/2024-07-09_03-59-18.png" /></li>
 </ul>
