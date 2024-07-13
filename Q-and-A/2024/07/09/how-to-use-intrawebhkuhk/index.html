@@ -9,8 +9,10 @@
       
       
       
+        <link rel="prev" href="../../02/how-to-require-hkuportal-for-admin-login/">
       
-        <link rel="next" href="../../15/setting-up-cas-to-make-it-work-with-the-school-cms/">
+      
+        <link rel="next" href="../../12/how-to-add-new-executive-position-and-change-the-order-of-appearance-of-executive-committees-in-leadership-page/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Backup/restore mysql databases - My Docs</title>
+        <title>How to use intraweb.hku.hk - My Docs</title>
       
     
     
@@ -68,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backuprestore-mysql-databases" class="md-skip">
+        <a href="#how-to-use-intrawebhkuhk" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Backup/restore mysql databases
+              How to use intraweb.hku.hk
             
           </span>
         </div>
@@ -799,32 +801,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mysqldump-to-backup-database-to-a-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      mysqldump to backup database to a file
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restore-databases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Restore databases
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -879,7 +855,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2024-06-09 00:00:00" class="md-ellipsis">Sunday, June 9, 2024</time>
+                        <time datetime="2024-07-09 00:00:00" class="md-ellipsis">Tuesday, July 9, 2024</time>
                       </div>
                     </li>
                     
@@ -890,8 +866,8 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/theorigo/">theorigo</a>, 
-                              <a href="../../../../category/mysql/">mysql</a></span>
+                              <a href="../../../../category/intraweb/">intraweb</a>, 
+                              <a href="../../../../category/hkuportal/">hkuportal</a></span>
                         </div>
                       </li>
                     
@@ -928,109 +904,69 @@
     
     
     
-      <a href="../../../../../tags/#theorigo" class="md-tag">theorigo</a>
+      <a href="../../../../../tags/#intraweb" class="md-tag">intraweb</a>
     
   
     
     
     
-      <a href="../../../../../tags/#mysql" class="md-tag">mysql</a>
+      <a href="../../../../../tags/#hkuportal" class="md-tag">hkuportal</a>
     
   
 </nav>
 
 
 
-<h1 id="backuprestore-mysql-databases">Backup/restore mysql databases</h1>
-<p>How to back up and restore mysql databases in School server?</p>
+<h1 id="how-to-use-intrawebhkuhk">How to use intraweb.hku.hk</h1>
+<p>You can put pages in intraweb server to limit access to these pages. </p>
+<p><img alt="intraweb" src="../../../../image/2024-07-09_03-15-13.png" /></p>
 <!-- more -->
-
-<h2 id="mysqldump-to-backup-database-to-a-file">mysqldump to backup database to a file</h2>
-<p>Command:
-<div class="highlight"><pre><span></span><code>mysqldump -u &lt;USERNAME&gt; -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases &lt;DATABASE&gt; | gzip &gt; DB.sql.gz 
-</code></pre></div></p>
+<ul>
+<li>Server: intraweb.hku.hk</li>
+<li>Username/password: same as that in www.sbms.hku.hk</li>
+<li>Available directories: <ul>
+<li><code>/web/docs/local/sbms/</code> (default login directory; content accessible by computers in campus network)</li>
+<li><code>/web/docs/reserved_1/sbms/</code> (files accessible to users with valid hkuportal account)</li>
+</ul>
+</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Replace <code>&lt;USERNAME&gt;</code>, <code>&lt;PASSWORD&gt;</code>, <code>&lt;DATABASE&gt;</code> with real username, password and database name</p>
-<ol>
-<li>sbms web site: username=sbmsnew; database=sbmsnew;</li>
-<li>teaching timetable: username=sbms; database=sbms;</li>
-<li>equipment list: username=biochem; database=biochem; </li>
-</ol>
+<ul>
+<li>
+<p>Files put in directory <code>/web/docs/local/sbms/</code> will be accessible by computers in campus network. No portal login is required. </p>
+</li>
+<li>
+<p>Page URL format: https://intraweb.hku.hk/local/sbms/[sub-directory]/[filename] e.g., <a href="https://intraweb.hku.hk/local/sbms/SYChan-bioc4999.pdf">https://intraweb.hku.hk/local/sbms/SYChan-bioc4999.pdf</a>
+<img alt="intraweb" src="../../../../image/2024-07-09_03-15-13.png" /></p>
+</li>
+</ul>
 </div>
-<ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Files put in directory <code>/web/docs/reserved_1/sbms/</code> will be accessible after hkuportal login.
+<img alt="intraweb_1" src="../../../../image/2024-07-09_03-18-31.png" /></p>
+<p>Page URL format: https://intraweb.hku.hk/intraweb_1/sbms/[sub-directory]/[filename] e.g., <a href="https://intraweb.hku.hk/reserved_1/sbms/bbms-fyp/test.php">https://intraweb.hku.hk/reserved_1/sbms/bbms-fyp/test.php</a>
+<!-- <img alt="intraweb_1" src="../image/2024-07-09_03-17-47.png" /> --></p>
+<ul>
+<li>Anyone with a valid portal account can access the file. </li>
 <li>
-<p>backup database sbms (timetable etc) into sbms-DB.sql.gz 
-<div class="highlight"><pre><span></span><code>mysqldump -u sbms -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases sbms | gzip &gt; sbms-DB.sql.gz 
-</code></pre></div></p>
+<p>You can limit access to selected staff or studnets by including an access control list  ("acl.txt")  in the same directory as the files to be served. List the staff hkuportal IDs or student UIDs, one per each line in acl.txt file. Access control will be enforced on all files within the same directory. Example of the acl.txt file:
+<div class="highlight"><pre><span></span><code>14803
+104431
+120045
+116715
+3035792705
+</code></pre></div>
+users with UID 14803, 104431, 120045, 116715, 3035792705 will be able to access files in the sub-directory where acl.txt is located.</p>
 </li>
 <li>
-<p>backup database sbmsnew (school web site) into sbmsnew-DB.sql.gz 
-<div class="highlight"><pre><span></span><code>mysqldump -u sbmsnew -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases sbmsnew | gzip &gt; sbmsnew-DB.sql.gz 
-</code></pre></div></p>
+<p>You can create multiple sub-directories each with a differentaccess control list ("acl.txt") to tailor for different group of people.</p>
 </li>
-<li>
-<p>backup database biochem (equipment list) into biochem-DB.sql.gz 
-<div class="highlight"><pre><span></span><code>mysqldump -u biochem -p&lt;PASSWORD&gt; --lock-tables=false -q --single-transaction  --extended-insert --disable-keys --flush-privileges --quick --routines --triggers --no-tablespaces --databases biochem | gzip &gt; biochem-DB.sql.gz 
-</code></pre></div></p>
-</li>
-</ol>
-<h2 id="restore-databases">Restore databases</h2>
-<p>gunip mysqldump files:
-<div class="highlight"><pre><span></span><code>gunzip sbms-DB.sql.gz
-gunzip sbmsnew-DB.sql.gz
-gunzip biochem-DB.sql.gz
-</code></pre></div></p>
-<hr>
-<p>Log in mysql:
-    <div class="highlight"><pre><span></span><code>mysql -u &lt;USERNAME&gt; -p&lt;PASSWORD&gt;
-</code></pre></div>
-Restore database:
-    <div class="highlight"><pre><span></span><code>mysql&gt; use &lt;DATABASE&gt;
-mysql&gt; \W
-mysql&gt; source &lt;mysqldump_file&gt;
-mysql&gt; exit
-</code></pre></div></p>
-<hr>
-
-<ol>
-<li>
-<p>Restore database sbms (for timetable etc)
-    <div class="highlight"><pre><span></span><code>mysql -u sbms -p&lt;PASSWORD&gt;
-</code></pre></div>
-    <div class="result" markdown>
-    <div class="highlight"><pre><span></span><code>mysql&gt; use sbms
-mysql&gt; \W
-mysql&gt; source sbms-DB.sql
-mysql&gt; exit
-</code></pre></div>
-    </div></p>
-</li>
-<li>
-<p>Restore database sbmsnew: (for school website etc)
-    <div class="highlight"><pre><span></span><code>mysql -u sbmsnew -p&lt;PASSWORD&gt;
-</code></pre></div>
-    <div class="result" markdown>
-    <div class="highlight"><pre><span></span><code>mysql&gt; use sbmsnew
-mysql&gt; \W
-mysql&gt; source sbmsnew-DB.sql
-mysql&gt; exit
-</code></pre></div>
-    </div></p>
-</li>
-<li>
-<p>Restore database biochem (for equipment list):
-    <div class="highlight"><pre><span></span><code>mysql -u biochem -p&lt;PASSWORD&gt;
-</code></pre></div>
-    <div class="result" markdown>
-    <div class="highlight"><pre><span></span><code>mysql&gt; use biochem
-mysql&gt; \W
-mysql&gt; source biochem-DB.sql
-mysql&gt; exit
-</code></pre></div>
-    </div></p>
-</li>
-</ol>
+<li>Error message will appear if user is not on acl.txt:
+<img alt="error" src="../../../../image/2024-07-09_03-59-18.png" /></li>
+</ul>
+</div>
 
 
 
