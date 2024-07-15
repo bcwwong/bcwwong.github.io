@@ -18,7 +18,7 @@
     
     
       
-        <title>How to add banner images? - My Docs</title>
+        <title>How to add banner images ? - My Docs</title>
       
     
     
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to add banner images?
+              How to add banner images ?
             
           </span>
         </div>
@@ -940,30 +940,37 @@
 
 
 
-<h1 id="how-to-add-banner-images">How to add banner images?</h1>
+<h1 id="how-to-add-banner-images">How to add banner images  ?</h1>
 <p><img alt="no-banner" src="../../../../image/2024-07-16_01-10-40.png" />
 <img alt="no-banner" src="../../../../image/2024-07-16_01-12-05.png" />
 <img alt="no-banner" src="../../../../image/2024-07-16_00-57-05.png" /></p>
 <!-- more -->
 
 <ol>
-<li>Work out the link in the URL: 
-<div class="highlight"><pre><span></span><code>Academic Staff - https://www.sbms.hku.hk/staff/academic-staff (the link is staff)
+<li>
+<p>Work out the link for the drop-down menu: 
+<img alt="menu" src="../../../../image/2024-07-16_02-03-00.png" />
+<div class="highlight"><pre><span></span><code>People - https://www.sbms.hku.hk/staff/academic-staff (the link is staff)
 Knowledge Exchange - https://www.sbms.hku.hk/news (the link is news)
 Events - https://www.sbms.hku.hk/event (the link is event)
-</code></pre></div></li>
-<li>Edit <code>html/theorigo/application/config/theorigo.php</code> to specify the banner images. Add the desired images corresponding to the URL links under the $config['banner_config'] section. Create new images if necessary.
+</code></pre></div>
+    Link for drop-down menu can also be found in the "Global Menu Editing Page". For example:
+    <img alt="example" src="../../../../image/2024-07-16_01-55-07.png" /></p>
+</li>
+<li>
+<p>Edit <code>html/theorigo/application/config/theorigo.php</code> to specify the banner images. Add the desired images corresponding to the links under the $config['banner_config'] section. Create new images if necessary.
 <div class="highlight"><pre><span></span><code>$config[&#39;banner_config&#39;] = array(
 <span class="hll">    &#39;staff&#39; =&gt; &#39;assets/img/banner_people.jpg&#39;, # Brian added for staff page
 </span><span class="hll">    &#39;news&#39; =&gt; &#39;assets/img/banner_jobs.jpg&#39;, # Brian added for knowledge exchange page
 </span><span class="hll">    &#39;event&#39; =&gt; &#39;assets/img/banner_seminar.jpg&#39;,  # Brian added for event page
 </span>);
-</code></pre></div></li>
-</ol>
-<p>After editing:
+</code></pre></div></p>
+</li>
+<li>After editing:
 <img alt="banner" src="../../../../image/2024-07-16_01-37-23.png" />
 <img alt="banner" src="../../../../image/2024-07-16_01-39-11.png" />
-<img alt="banner" src="../../../../image/2024-07-16_00-58-02.png" /></p>
+<img alt="banner" src="../../../../image/2024-07-16_00-58-02.png" /></li>
+</ol>
 
 
 
